@@ -9,6 +9,8 @@ public class StudentService {
     private final UUIDStudentIdGenerator studentIdGenerator ;
     private final StatusService statusService;
     private final ApplicationFormService applicationFormService;
+    @Autowired
+    private FileSaver fileSaver;
 
     @Autowired
     public StudentService(UUIDStudentIdGenerator studentIdGenerator, StatusService statusService, ApplicationFormService applicationFormService) {
@@ -28,7 +30,8 @@ public class StudentService {
         String lastName = applicationForm.getLastName();
         String email = applicationForm.getEmail();
         Status status = statusService.randomStatus();
-        return new Student(id, firstName, lastName, email, status); // new allowed here
+
+        return fileSaver.saveToFile(new Student(id, firstName, lastName, email, status)); // new allowed here
     }
 
 }

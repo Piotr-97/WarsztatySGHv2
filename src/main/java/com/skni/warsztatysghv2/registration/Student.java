@@ -1,5 +1,7 @@
 package com.skni.warsztatysghv2.registration;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class Student {
 
     private final String id;
