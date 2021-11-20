@@ -9,9 +9,9 @@ public class StudentService {
     @Autowired
     private UUIDStudentIdGenerator studentIdGenerator;
     @Autowired
-    private StatusService statusService = new StatusService();
+    private StatusService statusService;
     @Autowired
-    private ApplicationService applicationService = new ApplicationService();
+    private ApplicationService applicationService;
 
     public void printStudent() {
         Student student = create(applicationService.createMock());
